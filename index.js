@@ -6,11 +6,11 @@ const lambda = require('./lambda_actions.js');
 
 exports.handler = (event, context, callback) => {
 
-    var one = s3.readFileAsString(${process.env.bucket_name}, "new.txt")
+    var one = s3.readFileAsString(process.env.bucket_name, "new.txt")
     
-    var two = s3.readFileAsString(${process.env.bucket_name}, "archive.txt")
+    var two = s3.readFileAsString(process.env.bucket_name, "archive.txt")
     
-    var three = s3.readFileAsString(${process.env.bucket_name}, "cookiejar.txt")
+    var three = s3.readFileAsString(process.env.bucket_name, "cookiejar.txt")
     
     Promise.all([one, two, three]).then(([newtxt, archivetxt, cookiestxt]) => {
         lambdafs.writeFile(newtxt, "new.txt")
@@ -26,7 +26,7 @@ exports.handler = (event, context, callback) => {
 		})
 		lambdafs.readFile("archive.txt")
 		.then(function(result) {
-	            s3.writeObject(${process.env.bucket_name}, "archive.txt", result)
+	            s3.writeObject(process.env.bucket_name, "archive.txt", result)
 		});
 	    });
 	});
