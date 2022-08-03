@@ -9,4 +9,4 @@ aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_A
 
 docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/pocket-youtube-subscriber:latest
 
-aws lambda update-function-code --function-name containeryeeter --image-uri $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/pocket-youtube-subscriber:latest
+aws lambda update-function-code --function-name pocket-youtube-subscriber --image-uri $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/pocket-youtube-subscriber:latest
