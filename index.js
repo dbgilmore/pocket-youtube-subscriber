@@ -22,6 +22,7 @@ exports.handler = (event, context, callback) => {
             lambdafs.readFile("new.txt")
 	    .then(function(result) {
 		result.split("\n").forEach(function (item) {
+                    console.log('This is the item', item);
 	            pocket.addItem(item);
 		})
 		lambdafs.readFile("archive.txt")

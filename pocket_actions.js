@@ -18,7 +18,8 @@ function addItem(url) {
 
   var req = https.request(options, (res) => {
     console.log('statusCode:', res.statusCode);
-    console.log('headers:', res.headers);
+    console.log('options', options);
+    console.log('postData', postData);
   });
   
   req.on('error', (e) => {
